@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD Sample</title>
+</head>
+<body>
+    <h2>日報　一覧ページ</h2>
+    <table>
+        <tr><th>id</th><th>タイトル</th><th>内容</th></tr>
+        <tr th:each="report : ${reportList}">
+            <td th:text="${report.id}"></td>
+            <td th:text="${report.title}"></td>
+            <td th:text="${report.content}"></td>
+            <td>
+                <a href="#" th:href="@{'/report/edit/' + ${report.id}}"><button>編集</button></a>
+            </td>
+            <td>
+                <form action="#" th:action="@{'/report/delete/' + ${report.id}}" method="post">
+                    <button>削除</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <div><a href="#" th:href="@{/report/form}">登録画面</a></div>
+</body>
+</html>
