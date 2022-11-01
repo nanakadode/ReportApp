@@ -1,10 +1,14 @@
 package com.example.demo.app.report;
 
+import javax.validation.constraints.NotNull;
 
 public class ReportForm {
 
+	
 	private int id;
+	@NotNull
 	private String title;
+	@NotNull
 	private String content;
 	
 	

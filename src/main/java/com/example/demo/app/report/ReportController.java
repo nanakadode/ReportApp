@@ -28,7 +28,7 @@ public class ReportController {
 //	index page
 	@GetMapping
 	public String index(Model model) {
-		String sql = "SELECT * FROM report_table";
+		String sql = "SELECT * FROM report";
 		List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
 		model.addAttribute("ReportList", list);
 		return "report/index";
@@ -44,7 +44,7 @@ public class ReportController {
 //	save new data
 	@PostMapping("/form")
 	public String create(ReportForm reportForm) {
-		String sql = "INSERT INTO report_table(ttle, content) VALUES(?,?);";
+		String sql = "INSERT INTO report(title, content) VALUES(?,?);";
 		jdbcTemplate.update(sql, reportForm.getTitle(), reportForm.getContent());
 		return "redirect:/report";
 	}
@@ -53,7 +53,7 @@ public class ReportController {
 	@GetMapping("/edit/{id}")
 	public String edit(@ModelAttribute ReportForm reportForm, @PathVariable int id) {
 		
-		String sql = "SELECT * FROM report_table WHERE id = " + id;
+		String sql = "SELECT * FROM report WHERE id = " + id;
 		Map<String, Object> map = jdbcTemplate.queryForMap(sql);
 		reportForm.setId((int)map.get("id"));
 		reportForm.setTitle((String)map.get("title"));
@@ -64,17 +64,17 @@ public class ReportController {
 //	Edit form page(save)
 	@PostMapping("/edit/{id}")
 	public String update(ReportForm reportForm, @PathVariable int id) {
-		String sql = "UPDATE report_table SET title = ?, content = ? WHERE id = " + id;
+		String sql = "UPDATE report SET title = ?, content = ? WHERE id = " + id;
 		jdbcTemplate.update(sql, reportForm.getTitle(), reportForm.getContent());
-		return "redirect:/report/index";
+		return "redirect:/report";
 	}
 	
 //	delete 
 	@PostMapping("/delete/{id}")
 	public String delete(@PathVariable int id) {
-		String sql = "DELETE from report_table WHERE id = " + id;
+		String sql = "DELETE from report WHERE id = " + id;
 		jdbcTemplate.update(sql);
-		return "redirect:/report/index";
+		return "redirect:/report";
 	}
 	
 	

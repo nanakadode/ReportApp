@@ -1,2 +1,2 @@
-INSERT INTO report_table(title, content)
-VALUES('Nana', 'Java training');
+INSERT INTO report VALUES
+(1, '10/30日報', 'Java training');
