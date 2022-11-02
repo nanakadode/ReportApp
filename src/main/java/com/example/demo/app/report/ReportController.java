@@ -30,7 +30,7 @@ public class ReportController {
 	public String index(Model model) {
 		String sql = "SELECT * FROM report";
 		List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
-		model.addAttribute("ReportList", list);
+		model.addAttribute("reportList", list);
 		return "report/index";
 	}
 	
