@@ -8,7 +8,7 @@
     <h2>入力フォーム</h2>
     <form method="post" action="#" th:action="@{/report/form}" th:object="${reportForm}">
         <label for="title">タイトル</label>
-        <input type="text" id="title" name="name" th:value="${reportForm.title}"><br>
+        <input type="text" id="title" name="title" th:value="${reportForm.title}"><br>
         <label for="content">内容</label>
         <input type="text" id="content" name="content" th:value="${reportForm.content}"><br>
         <input type="submit" value="登録">
