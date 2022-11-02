@@ -5,4 +5,5 @@ spring:
     username: nana
     password: nanana
   h2.console.enabled: true
-    
+server:
+  port: 8081    

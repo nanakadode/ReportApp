@@ -13,10 +13,18 @@
             <td th:text="${report.title}"></td>
             <td th:text="${report.content}"></td>
             <td>
-                <a href="#" th:href="@{'/report/edit/' + ${report.id}}"><button>編集</button></a>
+            <a type="button" th:href="@{'/report/edit/'+${report.id}}"><button>編集</button></a>
+                <!-- 
+                <a type="button" th:href="@{/report/edit/{id}(id=${report.id})}"><button>編集</button></a>
+                {id}(id=${obj.id})
+                 -->
             </td>
             <td>
+            <!-- 
                 <form action="#" th:action="@{'/report/delete/' + ${report.id}}" method="post">
+             -->
+                <form action="#" th:action="@{'/report/delete/' + ${report.id}}" method="post">
+                
                     <button>削除</button>
                 </form>
             </td>
