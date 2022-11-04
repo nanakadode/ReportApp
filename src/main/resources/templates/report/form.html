@@ -6,11 +6,14 @@
 </head>
 <body>
     <h2>入力フォーム</h2>
-    <form method="post" action="#" th:action="@{/report/form}" th:object="${reportForm}">
+    <form method="post" th:action="@{/report/form}" th:object="${reportForm}">
         <label for="title">タイトル</label>
-        <input type="text" id="title" name="title" th:value="${reportForm.title}"><br>
+        <input type="text" id="title" name="title" th:value="*{title}"><br>
         <label for="content">内容</label>
+        <textarea name="content" id="content" rows="10" cols="40" th:field="*{content}"></textarea><br>
+        <!-- 
         <input type="text" id="content" name="content" th:value="${reportForm.content}"><br>
+         -->
         <input type="submit" value="登録">
     </form>
     <div><a href="#" th:href="@{/report}">トップページ</a></div>

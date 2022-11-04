@@ -6,7 +6,7 @@
 </head>
 <body>
     <h2>内容修正フォーム</h2>
-    <form method="post" action="#" th:action="@{'/sample/edit/' + ${testForm.id}}" th:object="${testForm}">
+    <form method="post" th:action="@{'/report/edit/' + ${reportForm.id}}" th:object="${reportForm}">
         <label for="title">タイトル</label>
         <input type="text" id="title" name="title" th:value="${reportForm.title}"><br>
         <label for="old">内容</label>
