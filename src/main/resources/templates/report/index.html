@@ -12,7 +12,7 @@
             <td th:text="${report.id}"></td>
             <td th:text="${report.title}"></td>
             <td th:text="${report.content}"></td>
-            <td th:text="${report.report_date}"></td>
+             <td th:text="${#dates.format(report.report_date, 'yyyy/MM/dd')}"></td>
             <td>
             <a type="button" th:href="@{'/report/edit/'+${report.id}}"><button>編集</button></a>
             </td>
