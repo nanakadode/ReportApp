@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link th:href="@{/css/form.css}" rel="stylesheet">
 <head>
     <meta charset="UTF-8">
     <title>CRUD Sample</title>
@@ -7,14 +8,11 @@
 <body>
     <h2>入力フォーム</h2>
     <form method="post" th:action="@{/report/form}" th:object="${reportForm}">
-        <label for="title">タイトル</label>
-        <input type="text" id="title" name="title" th:value="*{title}"><br>
-        <label for="content">内容</label>
-        <textarea name="content" id="content" rows="10" cols="40" th:field="*{content}"></textarea><br>
-        <label for="title">対象日</label>
-        <!-- 
-        <input type="date" id="report_date" name="reportDate" th:field="*{reportDate}"><br>
-         -->
+        <label for="title">タイトル</label><br>
+        <input type="text" id="title" name="title" th:value="*{title}" placeholder="タイトルを入力してください"><br>
+        <label for="content">内容</label><br>
+        <textarea name="content" id="content" rows="10" cols="40" th:field="*{content}"  placeholder="報告内容を記載してください" required></textarea><br>
+        <label for="title">対象日</label><br>
         <input type="date" id="report_date" name="reportDate" th:field="*{reportDate}"><br>
         <input type="submit" value="登録">
     </form>

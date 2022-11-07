@@ -7,10 +7,10 @@
 <body>
     <h2>内容修正フォーム</h2>
     <form method="post" th:action="@{'/report/edit/' + ${reportForm.id}}" th:object="${reportForm}">
-        <label for="title">タイトル</label>
+        <label for="title">タイトル</label><br>
         <input type="text" id="title" name="title" th:value="${reportForm.title}"><br>
-        <label for="old">内容</label>
-        <input type="text" id="content" name="content" th:value="${reportForm.content}"><br>
+        <label for="old">内容</label><br>
+        <textarea name="content" id="content" rows="10" cols="40"  th:field="${reportForm.content}"></textarea><br>
         <input type="submit" value="変更">
     </form>
     <div><a href="#" th:href="@{/sample}">トップページ</a></div>
