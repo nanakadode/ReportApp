@@ -1,5 +1,6 @@
 package com.example.demo.app.report;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
@@ -44,8 +45,8 @@ public class ReportController {
 //	save new data
 	@PostMapping("/form")
 	public String create(ReportForm reportForm) {
-		String sql = "INSERT INTO report(title, content) VALUES(?,?);";
-		jdbcTemplate.update(sql, reportForm.getTitle(), reportForm.getContent());
+		String sql = "INSERT INTO report(title, content, report_date) VALUES(?,?,?);";
+		jdbcTemplate.update(sql, reportForm.getTitle(), reportForm.getContent(), reportForm.getReportDate());
 		return "redirect:/report";
 	}
 	
@@ -58,14 +59,15 @@ public class ReportController {
 		reportForm.setId((int)map.get("id"));
 		reportForm.setTitle((String)map.get("title"));
 		reportForm.setContent((String)map.get("content"));
+		reportForm.setReportDate((LocalDate)map.get("reportDate"));
 		return "report/edit";
 	}
 	
 //	Edit form page(save)
 	@PostMapping("/edit/{id}")
 	public String update(ReportForm reportForm, @PathVariable int id) {
-		String sql = "UPDATE report SET title = ?, content = ? WHERE id = " + id;
-		jdbcTemplate.update(sql, reportForm.getTitle(), reportForm.getContent());
+		String sql = "UPDATE report SET title = ?, content = ?, report_date = ? WHERE id = " + id;
+		jdbcTemplate.update(sql, reportForm.getTitle(), reportForm.getContent(), reportForm.getReportDate());
 		return "redirect:/report";
 	}
 	

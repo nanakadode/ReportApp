@@ -14,7 +14,7 @@ public class Report {
 	private int id;
 	private String title;
 	private String content;
-	private LocalDateTime dateForReport;
+	private LocalDateTime reportDate;
 	
 	
 	public int getId() {
@@ -35,12 +35,13 @@ public class Report {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public LocalDateTime getDateForReport() {
-		return dateForReport;
+	public LocalDateTime getReportDate() {
+		return reportDate;
 	}
-	public void setDateForReport(LocalDateTime dateForReport) {
-		this.dateForReport = dateForReport;
+	public void setReportDate(LocalDateTime reportDate) {
+		this.reportDate = reportDate;
 	}
+
 	
 	
 	
