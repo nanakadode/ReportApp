@@ -1,6 +1,10 @@
 package com.example.demo.app.report;
 
+import java.time.LocalDate;
+
 import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class ReportForm {
 
@@ -10,6 +14,8 @@ public class ReportForm {
 	private String title;
 	@NotNull
 	private String content;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate reportDate;
 	
 	
 	public int getId() {
@@ -29,6 +35,12 @@ public class ReportForm {
 	}
 	public void setContent(String content) {
 		this.content = content;
+	}
+	public LocalDate getReportDate() {
+		return reportDate;
+	}
+	public void setReportDate(LocalDate reportDate) {
+		this.reportDate = reportDate;
 	}
 	
 	
