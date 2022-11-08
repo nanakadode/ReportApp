@@ -7,14 +7,13 @@
     <title>CRUD Sample</title>
 </head>
 <body>
-    <h2>内容修正フォーム</h2>
+    <header>日報修正フォーム</header>
     <form method="post" th:action="@{'/report/edit/' + ${reportForm.id}}" th:object="${reportForm}">
-        <label for="title">タイトル</label><br>
-        <input type="text" id="title" name="title" th:value="${reportForm.title}"><br>
-        <label for="old">内容</label><br>
-        <textarea name="content" id="content" rows="10" cols="40"  th:field="${reportForm.content}"></textarea><br>
-        <input type="submit" value="変更">
+        <input type="text" id="title" name="title" th:value="${reportForm.title}" placeholder="日報タイトル"><br>
+		<input type="date" class="report-date" name="reportDate" th:value="${reportForm.reportDate}" placeholder="対象日"><br>
+        <textarea name="content" id="content" th:field="${reportForm.content}" placeholder="報告内容"></textarea><br>
+        <input type="submit" class="submit" value="CHANGE">
     </form>
-    <div><a href="#" th:href="@{/sample}">トップページ</a></div>
+    <div><a href="#" th:href="@{/report}">HOME</a></div>
 </body>
 </html>

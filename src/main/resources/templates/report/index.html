@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"></link>
+	<link href="/css/index.css" th:href="@{/css/index.css}" rel="stylesheet"></link>
 <head>
     <meta charset="UTF-8">
     <title>Report App</title>
 </head>
 <body>
-    <h2>日報　一覧ページ</h2>
+    <header>日報一覧ページ</header>
     <table>
         <tr><th>id</th><th>タイトル</th><th>内容</th></tr>
         <tr th:each="report : ${reportList}">

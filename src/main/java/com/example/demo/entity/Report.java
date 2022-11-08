@@ -1,6 +1,6 @@
 package com.example.demo.entity;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +14,7 @@ public class Report {
 	private int id;
 	private String title;
 	private String content;
-	private LocalDateTime reportDate;
+	private LocalDate reportDate;
 	
 	
 	public int getId() {
@@ -35,10 +35,10 @@ public class Report {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public LocalDateTime getReportDate() {
+	public LocalDate getReportDate() {
 		return reportDate;
 	}
-	public void setReportDate(LocalDateTime reportDate) {
+	public void setReportDate(LocalDate reportDate) {
 		this.reportDate = reportDate;
 	}
 
