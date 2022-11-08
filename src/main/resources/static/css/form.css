@@ -41,7 +41,7 @@ input {
 	border-bottom: none;
 }
 
-input#report-date {
+input.report-date {
 	color: #726659;
 }
 
@@ -66,7 +66,7 @@ textarea {
 
 /* HOVER input, textarea  */
 input:hover, 
-input#report-date:hover,
+input.report-date:hover,
 textarea:hover {
     color: #060606;
 }
@@ -77,13 +77,13 @@ textarea:hover::placeholder {
 }
 
 input:focus::-ms-placeholder, 
-input#report-date:target,
+input.report-date:target,
 textarea:focus::-ms-placeholder {
     color: #060606;
 }
 
 /* submit */
-#submit {
+.submit {
 	padding: 0;
 	margin: 5px 0px 0px 0px;
 	font-size: 0.875em;
@@ -94,7 +94,7 @@ textarea:focus::-ms-placeholder {
 	border: solid 1px #b3aca7;
 }
 
-#submit:hover {
+.submit:hover {
 	background: #7f7b78;
 	color: #e2dedb;
 }

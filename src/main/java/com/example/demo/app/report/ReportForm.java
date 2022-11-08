@@ -6,6 +6,8 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class ReportForm {
 
 	
@@ -14,7 +16,10 @@ public class ReportForm {
 	private String title;
 	@NotNull
 	private String content;
+//	for input
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+//	for output
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDate reportDate;
 	
 	
