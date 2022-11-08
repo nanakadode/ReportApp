@@ -1,26 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
-<link th:href="@{/css/form.css}" rel="stylesheet">
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"></link>
+<link href="/css/form.css" th:href="@{/css/form.css}" rel="stylesheet"></link>
 <head>
     <meta charset="UTF-8">
     <title>CRUD Sample</title>
 </head>
 <body>
-	<section id="form">
-		<div class="container">
-		    <h2>入力フォーム</h2>
-		    <form method="post" th:action="@{/report/form}" th:object="${reportForm}">
-		        <label for="title">タイトル</label><br>
-		        <input type="text" id="title" name="title" th:value="*{title}" placeholder="タイトルを入力してください"><br>
-		        <label for="content">内容</label><br>
-		        <textarea name="content" id="content" rows="10" cols="40" th:field="*{content}"  placeholder="報告内容を記載してください" required></textarea><br>
-		        <label for="title">対象日</label><br>
-		        <input type="date" id="report_date" name="reportDate" th:field="*{reportDate}"><br>
-		        <input type="submit" value="登録">
-		    </form>
-		    <div><a href="#" th:href="@{/report}">トップページ</a></div>
-		</div>
-	</section>
+  <header>新規日報フォーム</header>
+    <form class="topBefore" method="post" th:action="@{/report/form}" th:object="${reportForm}">
+        <input type="text" id="title" name="title" th:value="*{title}" placeholder="日報タイトル"><br>
+        <input type="date" id="report-date" name="reportDate" th:field="*{reportDate}" placeholder="対象日"><br>
+        <textarea name="content" id="content" th:field="*{content}"  placeholder="報告内容"></textarea><br>
+        <input type="submit" id="submit" value="SEND">
+    </form>
+    <div class="btn btn-info"><a href="#" th:href="@{/report}">HOME</a></div>
 </body>
 </html>

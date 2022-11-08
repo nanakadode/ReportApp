@@ -1,2 +1,100 @@
-@charset "UTF-8";
+/* #655C52  -> title
+#757575 -> report title
+#4B4948 -> date */
+@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400);
+@import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@500&display=swap');
 
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #E1DEDB;
+	color: #726659;
+	font-family: 'Lato', sans-serif !important;
+	font-family: 'Radio Canada', sans-serif;
+}
+
+header {
+	position: relative;
+	margin: 100px 0 25px 0;
+	font-size: 2.3em;
+	text-align: center;
+	letter-spacing: 7px;
+}
+
+form {
+	position: relative;
+	width: 500px;
+	margin: 50px auto 100px auto;
+}
+
+
+/* input */
+input {
+	font-size: 0.875em;
+	width: 470px;
+	height: 50px;
+	padding: 0px 15px 0px 15px;
+	background: transparent;
+	outline: none;
+	border: solid 1px #b3aca7;
+	border-bottom: none;
+}
+
+input#report-date {
+	color: #726659;
+}
+
+input::placeholder {
+	color: #726659;
+}
+
+
+/* textarea */
+textarea {
+  width: 470px;
+  max-width: 470px;
+  height: 300px;
+  max-height: 500px;
+  padding: 15px;
+  background: transparent;
+  outline: none;
+  font-size: 0.875em;
+  border: solid 1px #b3aca7;
+}
+
+
+/* HOVER input, textarea  */
+input:hover, 
+input#report-date:hover,
+textarea:hover {
+    color: #060606;
+}
+
+input:hover::placeholder, 
+textarea:hover::placeholder {
+    color: #060606;
+}
+
+input:focus::-ms-placeholder, 
+input#report-date:target,
+textarea:focus::-ms-placeholder {
+    color: #060606;
+}
+
+/* submit */
+#submit {
+	padding: 0;
+	margin: 5px 0px 0px 0px;
+	font-size: 0.875em;
+	background: #b3aca7;
+	color: #4B4948;
+	outline:none;
+	cursor: pointer;
+	border: solid 1px #b3aca7;
+}
+
+#submit:hover {
+	background: #7f7b78;
+	color: #e2dedb;
+}
