@@ -5,15 +5,21 @@
 <head>
     <meta charset="UTF-8">
     <title>CRUD Sample</title>
+	<script src="https://kit.fontawesome.com/395ab02271.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>日報修正フォーム</header>
-    <form method="post" th:action="@{'/report/edit/' + ${reportForm.id}}" th:object="${reportForm}">
+  <!--   <form method="post" th:action="@{'/report/edit/' + ${reportForm.id}}" th:object="${reportForm}"> -->
+    <form method="post" th:action="@{'/report/edit/'+${reportForm.id}}" th:object="${reportForm}">
         <input type="text" id="title" name="title" th:value="${reportForm.title}" placeholder="日報タイトル"><br>
-		<input type="date" class="report-date" name="reportDate" th:value="${reportForm.reportDate}" placeholder="対象日"><br>
+		<input type="date" class="report-date" name="reportDate" th:field="${reportForm.reportDate}" placeholder="対象日"><br>
         <textarea name="content" id="content" th:field="${reportForm.content}" placeholder="報告内容"></textarea><br>
-        <input type="submit" class="submit" value="CHANGE">
+	        <button class="send-btn" type="submit" id="submit" value="CHANGE">
+		        <div class="alt-send-btn">
+			       <i class="fa-solid fa-paper-plane"></i><span class="send-text">UPDATE</span>
+		        </div>
+	        </button>
+    <div class="home"><a href="#" th:href="@{/report}">Back <i class="fa-solid fa-rotate-left"></i></a></div>
     </form>
-    <div><a href="#" th:href="@{/report}">HOME</a></div>
 </body>
 </html>

@@ -2,6 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"></link>
 	<link href="/css/index-1.css" th:href="@{/css/index-1.css}" rel="stylesheet"></link>
+	<link href="/css/common.css" th:href="@{/css/common.css}" rel="stylesheet"></link>
+	
 <head>
     <meta charset="UTF-8">
     <title>Report App</title>
@@ -22,8 +24,8 @@
 					<div class="date-row" th:text="${#dates.format(report.report_date, 'yyyy/MM/dd')}"></div>
 		            <div  class="report-title-row" th:text="${report.title}"></div>
 		        </div>
-	            <div class="row-buttons">  <!-- 2 btn -->
-	            <a type="button" th:href="@{'/report/edit/'+${report.id}}"><button><i class="fa-solid fa-pen-nib"></i></button></a>
+	            <div class="row-buttons">  <!-- edit & delete button -->
+	            	<a type="button" th:href="@{'/report/edit/'+${report.id}}"><button><i class="fa-solid fa-pen-nib"></i></button></a>
 	                <form action="#" th:action="@{'/report/delete/' + ${report.id}}" method="post">
 	                    <button class="mx-2"><i class="fa-solid fa-trash-can"></i></button>
 	                </form>
@@ -32,6 +34,6 @@
 	        
         </div>
     </div>
-    <div class="home"><a href="#" th:href="@{/report/form}">NEW <i class="fa-solid fa-file-lines"></i></a></div>
+    <div class="home" id="new"><a href="#" th:href="@{/report/form}">NEW <i class="fa-solid fa-file-lines"></i></a></div>
 </body>
 </html>
