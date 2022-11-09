@@ -2,18 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"></link>
 	<link href="/css/form.css" th:href="@{/css/form.css}" rel="stylesheet"></link>
+	<link href="/css/common.css" th:href="@{/css/common.css}" rel="stylesheet"></link>
 	<head>
 	    <meta charset="UTF-8">
 	    <title>CRUD Sample</title>
+	    <script src="https://kit.fontawesome.com/395ab02271.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
 	  <header>新規日報フォーム</header>
-	    <form class="topBefore" method="post" th:action="@{/report/form}" th:object="${reportForm}">
+	    <form class="topBefore mb-5" method="post" th:action="@{/report/form}" th:object="${reportForm}">
 	        <input type="text" id="title" name="title" th:value="*{title}" placeholder="日報タイトル"><br>
 	        <input type="date" class="report-date" name="reportDate" th:field="*{reportDate}" placeholder="対象日"><br>
 	        <textarea name="content" id="content" th:field="*{content}"  placeholder="報告内容"></textarea><br>
-	        <input type="submit" class="submit" value="SEND">
+	        
+	        <button class="send-btn" type="submit" id="submit" value="SEND">
+		        <div class="alt-send-btn">
+			       <i class="fa-solid fa-paper-plane"></i><span class="send-text">SEND</span>
+		        </div>
+	        </button>
+	     <!--    <input type="submit" class="submit" value="SEND"> -->
 	    </form>
-	    <div class="btn btn-info"><a href="#" th:href="@{/report}">HOME</a></div>
+	    <div class="home"><a href="#" th:href="@{/report}">Back <i class="fa-solid fa-rotate-left"></i></a></div>
 	</body>
 </html>

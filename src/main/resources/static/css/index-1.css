@@ -2,7 +2,7 @@
 
 .container {
 	width: 550px;
-	margin: 50px auto 100px auto;
+	margin: 50px auto 40px auto;
 }
 
 .title-row {
@@ -38,17 +38,8 @@ p {
 	font-size: 16px;
 	margin: 0 60px 0 20px;
 }
-a {
-	text-decoration: none;
+
+#new a{
+		margin-right: 0 !important;
 }
 
-.home {
-	width: 500px;
-	margin: 50px auto 100px auto;
-	text-align: right;
-}
-
-.home a {
-	color: #4B4948;
-	
-}
