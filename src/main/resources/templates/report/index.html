@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"></link>
-	<link href="/css/index.css" th:href="@{/css/index.css}" rel="stylesheet"></link>
+	<link href="/css/index-1.css" th:href="@{/css/index-1.css}" rel="stylesheet"></link>
 <head>
     <meta charset="UTF-8">
     <title>Report App</title>
+	<script src="https://kit.fontawesome.com/395ab02271.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>日報一覧ページ</header>
-    <table>
-        <tr><th>id</th><th>タイトル</th><th>内容</th></tr>
-        <tr th:each="report : ${reportList}">
-            <td th:text="${report.id}"></td>
-            <td th:text="${report.title}"></td>
-            <td th:text="${report.content}"></td>
-             <td th:text="${#dates.format(report.report_date, 'yyyy/MM/dd')}"></td>
-            <td>
-            <a type="button" th:href="@{'/report/edit/'+${report.id}}"><button>編集</button></a>
-            </td>
-            <td>
-                <form action="#" th:action="@{'/report/delete/' + ${report.id}}" method="post">
-                    <button>削除</button>
-                </form>
-            </td>
-        </tr>
-    </table>
-    <div><a href="#" th:href="@{/report/form}">新規日報作成</a></div>
+    <div class="container">
+<!--         <tr><th>id</th><th>タイトル</th><th>内容</th></tr> -->
+	<div class="title-row">
+		<p>対象日</p>
+		<p>日報タイトル</p>
+	</div>
+	<hr class="m-1">
+        <div th:each="report : ${reportList}"> 
+	        <div class="report-row">  <!-- title/content & btn -->
+		        <div class="row-date-title">
+					<div class="date-row" th:text="${#dates.format(report.report_date, 'yyyy/MM/dd')}"></div>
+		            <div  class="report-title-row" th:text="${report.title}"></div>
+		        </div>
+	            <div class="row-buttons">  <!-- 2 btn -->
+	            <a type="button" th:href="@{'/report/edit/'+${report.id}}"><button><i class="fa-solid fa-pen-nib"></i></button></a>
+	                <form action="#" th:action="@{'/report/delete/' + ${report.id}}" method="post">
+	                    <button class="mx-2"><i class="fa-solid fa-trash-can"></i></button>
+	                </form>
+	            </div>
+	        </div>
+	        
+        </div>
+    </div>
+    <div class="home"><a href="#" th:href="@{/report/form}">NEW <i class="fa-solid fa-file-lines"></i></a></div>
 </body>
 </html>

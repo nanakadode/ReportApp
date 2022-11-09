@@ -1,0 +1,54 @@
+@import url('common.css');
+
+.container {
+	width: 550px;
+	margin: 50px auto 100px auto;
+}
+
+.title-row {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.report-row {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+}
+
+.row-date-title {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.date-row {
+	margin: 0 10px 0 10px;
+}
+
+.report-title-row {
+    margin-left: 40px;
+}
+
+.row-buttons {
+	display: flex;
+	justify-content: flex-start;
+}
+
+p {
+	font-size: 16px;
+	margin: 0 60px 0 20px;
+}
+a {
+	text-decoration: none;
+}
+
+.home {
+	width: 500px;
+	margin: 50px auto 100px auto;
+	text-align: right;
+}
+
+.home a {
+	color: #4B4948;
+	
+}

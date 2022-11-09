@@ -1,26 +1,7 @@
 /* #655C52  -> title
 #757575 -> report title
 #4B4948 -> date */
-@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400);
-@import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@500&display=swap');
-
-
-body {
-	margin: 0;
-	padding: 0;
-	background-color: #E1DEDB;
-	color: #726659;
-	font-family: 'Lato', sans-serif !important;
-	font-family: 'Radio Canada', sans-serif;
-}
-
-header {
-	position: relative;
-	margin: 100px 0 25px 0;
-	font-size: 2.3em;
-	text-align: center;
-	letter-spacing: 7px;
-}
+@import url('common.css');
 
 form {
 	position: relative;
@@ -97,4 +78,5 @@ textarea:focus::-ms-placeholder {
 .submit:hover {
 	background: #7f7b78;
 	color: #e2dedb;
+	border:  #7f7b78;
 }
