@@ -8,6 +8,7 @@
 	<script src="https://kit.fontawesome.com/395ab02271.js" crossorigin="anonymous"></script>
 </head>
 <body>
+	<div th:replace="report/navbar::navbar"></div>
     <header>日報修正フォーム</header>
   <!--   <form method="post" th:action="@{'/report/edit/' + ${reportForm.id}}" th:object="${reportForm}"> -->
     <form method="post" th:action="@{'/report/edit/'+${reportForm.id}}" th:object="${reportForm}">

@@ -10,14 +10,14 @@
 	<script src="https://kit.fontawesome.com/395ab02271.js" crossorigin="anonymous"></script>
 </head>
 <body>
+	<div th:replace="report/navbar::navbar"></div>
     <header>日報一覧ページ</header>
     <div class="container">
-<!--         <tr><th>id</th><th>タイトル</th><th>内容</th></tr> -->
-	<div class="title-row">
-		<p>対象日</p>
-		<p>日報タイトル</p>
-	</div>
-	<hr class="m-1">
+		<div class="title-row">
+			<p>対象日</p>
+			<p>日報タイトル</p>
+		</div>
+		<hr class="m-1">
         <div th:each="report : ${reportList}"> 
 	        <div class="report-row">  <!-- title/content & btn -->
 		        <div class="row-date-title">
@@ -31,9 +31,8 @@
 	                </form>
 	            </div>
 	        </div>
-	        
         </div>
     </div>
-    <div class="home" id="new"><a href="#" th:href="@{/report/form}">NEW <i class="fa-solid fa-file-lines"></i></a></div>
+	<div class="home" id="new"><a href="#" th:href="@{/report/form}">New <i class="fa-solid fa-file-lines"></i></a></div>
 </body>
 </html>

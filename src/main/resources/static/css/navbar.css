@@ -1,0 +1,22 @@
+@import url('common.css');
+
+.nav-container {
+	background-color:#883025;
+	color: red;
+	width: 100%;
+	margin: auto 10px;
+	display: flex;
+	justify-content: space-between;
+	margin: 0;
+}
+
+.nav-left {
+	display: flex;
+	justify-content: flex-start;	
+}
+
+.nav-right {
+	display: flex;
+	justify-content: flex-start;
+}
+

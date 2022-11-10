@@ -9,6 +9,7 @@
 	    <script src="https://kit.fontawesome.com/395ab02271.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
+	  <div th:replace="report/navbar::navbar"></div>
 	  <header>新規日報フォーム</header>
 	    <form class="topBefore mb-5" method="post" th:action="@{/report/form}" th:object="${reportForm}">
 	        <input type="text" id="title" name="title" th:value="*{title}" placeholder="日報タイトル"><br>
