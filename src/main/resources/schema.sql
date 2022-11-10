@@ -1,7 +1,16 @@
+CREATE TABLE users (
+	id INT NOT NULL AUTO_INCREMENT,
+	username VARCHAR(20) NOT NULL,
+	password VARCHAR(10) NOT NULL,
+	PRIMARY KEY (id)
+);
+
 CREATE TABLE report (
 	id INT NOT NULL AUTO_INCREMENT,
 	title VARCHAR(50) NOT NULL,
 	content VARCHAR(200) NOT NULL,
 	report_date DATETIME NOT NULL,
-	PRIMARY KEY (id)
+	user_id INT,
+	PRIMARY KEY (id),
+	FOREIGN KEY (user_id) REFERENCES users(id)	
 );
