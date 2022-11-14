@@ -15,6 +15,7 @@ public class Report {
 	private String title;
 	private String content;
 	private LocalDate reportDate;
+	private int userId;
 	
 	
 	public int getId() {
@@ -41,9 +42,11 @@ public class Report {
 	public void setReportDate(LocalDate reportDate) {
 		this.reportDate = reportDate;
 	}
-
-	
-	
-	
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 
 }

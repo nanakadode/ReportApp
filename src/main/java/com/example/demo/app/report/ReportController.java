@@ -50,7 +50,7 @@ public class ReportController {
 		return "redirect:/report";
 	}
 	
-//	Edit form page(display)
+//	Edit form page(edit)
 	@GetMapping("/edit/{id}")
 	public String edit(@ModelAttribute ReportForm reportForm, @PathVariable int id) {
 		
@@ -63,9 +63,13 @@ public class ReportController {
 		return "report/edit";
 	}
 	
-//	Edit form page(save)
+//	Edit form page(update)
 	@PostMapping("/edit/{id}")
-	public String update(ReportForm reportForm, @PathVariable int id) {
+	public String update(
+//			ReportForm reportForm, 
+			@ModelAttribute ReportForm reportForm, 
+			@PathVariable int id
+	) {
 		String sql = "UPDATE report SET title = ?, content = ?, report_date = ? WHERE id = " + id;
 		jdbcTemplate.update(sql, reportForm.getTitle(), reportForm.getContent(), reportForm.getReportDate());
 		return "redirect:/report";
