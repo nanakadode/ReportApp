@@ -8,7 +8,7 @@ public interface ReportDao {
 
 	List<Report> getAll();
 
-	List<Report> findList();
+//	List<Report> findList();
 	
 	
 }
