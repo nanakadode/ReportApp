@@ -11,9 +11,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.example.demo.service.MyUserService;
 
 
-@SuppressWarnings("deprecation")
-@Configuration //	Identify DI container
-@EnableWebSecurity //	Enable Spring Security
+//@SuppressWarnings("deprecation")
+//	Identify DI container
+@Configuration
+//	Enable Spring Security
+@EnableWebSecurity
 public class WebSecConfig extends WebSecurityConfigurerAdapter{
 
 	private MyUserService userService;
