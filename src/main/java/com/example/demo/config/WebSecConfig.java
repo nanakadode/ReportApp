@@ -1,62 +1,48 @@
 package com.example.demo.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import com.example.demo.service.MyUserService;
-
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.SecurityFilterChain;
 
 @SuppressWarnings("deprecation")
 @Configuration //	Identify DI container
 @EnableWebSecurity //	Enable Spring Security
-public class WebSecConfig extends WebSecurityConfigurerAdapter{
+public class WebSecConfig{
 
-	private MyUserService userService;
+	@Bean
+	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+		
+		http
+			.authorizeHttpRequests((requests) -> requests
+					.antMatchers("/", "/home", "/css/**").permitAll()
+					.anyRequest().authenticated()
+					)
+			.formLogin((form) -> form
+					.loginPage("/login")
+					.permitAll()
+					)
+			.logout((logout) -> logout.permitAll());
+		
+		return http.build();
+	}
 	
-	@Autowired
-	public WebSecConfig(MyUserService userService) {
-		this.userService = userService;
+	@Bean
+	public UserDetailsService userDetailsService() {
+		UserDetails user =
+				User.withDefaultPasswordEncoder()
+					.username("email")
+					.password("password")
+					.roles("USER")
+					.build();
+		return new InMemoryUserDetailsManager(user);
+					
 	}
 
-//	Authorize for each URL path. URLの認証要否を確認
-	 @Override
-	public void configure(HttpSecurity http) throws Exception {
-		 
-		 http
-		 	.authorizeRequests() //request時に認証必要か？
-		 	.antMatchers("/js/**", "/css/**", "/loginForm").permitAll()
-		 	.anyRequest().authenticated() //antMatchers以外は全て認証必要としてる
-		 	.and()
-		 	.formLogin()
-		 	.loginPage("/login")
-		 	.usernameParameter("username")
-		 	.passwordParameter("password")
-		 	.defaultSuccessUrl("/report", true)
-		 	.failureUrl("/loginForm?error=true");
-	 }
-	 
-//	 Getting user info. Needed to authenticate.
-	 @Override
-	 public void  configure(AuthenticationManagerBuilder auth) throws Exception {
-		 auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
-	 }
-
-//	 making password Hash
-	 public BCryptPasswordEncoder passwordEncoder() {
-		 BCryptPasswordEncoder bcpe = new BCryptPasswordEncoder(); 
-		 return bcpe;
-	 }
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
 }
