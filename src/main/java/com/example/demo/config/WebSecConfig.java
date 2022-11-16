@@ -11,7 +11,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
-@SuppressWarnings("deprecation")
 @Configuration //	Identify DI container
 @EnableWebSecurity //	Enable Spring Security
 public class WebSecConfig{
@@ -21,12 +20,13 @@ public class WebSecConfig{
 		
 		http
 			.authorizeHttpRequests((requests) -> requests
-					.antMatchers("/", "/home", "/css/**").permitAll()
+					.antMatchers("/login", "/css/**").permitAll()
 					.anyRequest().authenticated()
 					)
 			.formLogin((form) -> form
 					.loginPage("/login")
 					.permitAll()
+					.defaultSuccessUrl("/report", true)
 					)
 			.logout((logout) -> logout.permitAll());
 		
