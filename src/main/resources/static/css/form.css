@@ -15,7 +15,10 @@ form.nav-right {
 	margin-bottom: 0;
 }
 
-
+input.nav-link {
+	height: auto;
+	text-align: right;
+}
 
 /* input */
 input {
