@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"></link>
-	
+
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
@@ -18,22 +18,19 @@
 	      <div class="d-flex px-3">
 	      
 	      	 <!-- <div th:if="${param.logout}"> -->
-		      	<form th:action="@{/logout}" method="POST">
+		      	<form class="nav-right" th:action="@{/logout}" method="POST">
 		      		<input type="submit" value="Logout" class="nav-link mx-2 my-3" style="border:none; background-color: #2EC1AC;" />
 		      	</form>
 	      	<!--  </div> -->
-<<<<<<< HEAD
 	      	 
 	      	 <div th:if="${param.logout}">
 	      		<a class="nav-link mx-2 my-3">Log in</a>
 	      	 </div>
-=======
 	      	 <!-- 
 	      	 <div th:if="${param.logout}">
 	      		<a class="nav-link mx-2 my-3">Log in</a>
 	      	 </div>
 	      	  -->
->>>>>>> 1818c0192d2759f1098609d5ad9b6b0fdb4c06b3
 	      	 
 	      	 <div th:if="${param.logout}">
 	      		<a class="nav-link mx-2 my-3">Sign up</a>

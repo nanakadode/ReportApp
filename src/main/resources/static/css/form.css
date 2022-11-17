@@ -9,6 +9,13 @@ form {
 	margin: 50px auto 100px auto;
 }
 
+/* nav right */
+form.nav-right {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+
 
 /* input */
 input {
